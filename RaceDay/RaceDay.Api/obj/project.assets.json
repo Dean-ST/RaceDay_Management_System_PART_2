@@ -36,6 +36,16 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "RaceDay.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/RaceDay.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RaceDay.Contracts.dll": {}
+        }
       }
     }
   },
@@ -75,11 +85,17 @@
         "microsoft.openapi.2.7.5.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "RaceDay.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../RaceDay.Contracts/RaceDay.Contracts.csproj",
+      "msbuildProject": "../RaceDay.Contracts/RaceDay.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.OpenApi >= 10.0.11"
+      "Microsoft.AspNetCore.OpenApi >= 10.0.11",
+      "RaceDay.Contracts >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -114,7 +130,11 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj": {
+              "projectPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

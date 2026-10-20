@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V73pcUVHdWk=",
+  "dgSpecHash": "pIcVGhiFcjU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api.Tests\\RaceDay.Api.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Api.Tests\\RaceDay.Api.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dean\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
@@ -77,7 +77,7 @@
     "C:\\Users\\Dean\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.13\\system.diagnostics.eventlog.10.0.13.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.7.1\\system.identitymodel.tokens.jwt.7.7.1.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\system.memory.data\\8.0.1\\system.memory.data.8.0.1.nupkg.sha512",
-    "C:\\Users\\Dean\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.11\\system.security.cryptography.pkcs.9.0.11.nupkg.sha512",
+    "C:\\Users\\Dean\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.13\\system.security.cryptography.pkcs.10.0.13.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.11\\system.security.cryptography.protecteddata.9.0.11.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\xunit\\2.9.3\\xunit.2.9.3.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
@@ -88,30 +88,5 @@
     "C:\\Users\\Dean\\.nuget\\packages\\xunit.extensibility.execution\\2.9.3\\xunit.extensibility.execution.2.9.3.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\xunit.runner.visualstudio\\3.1.4\\xunit.runner.visualstudio.3.1.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7",
-      "projectPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api.Tests\\RaceDay.Api.Tests.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api.Tests\\RaceDay.Api.Tests.csproj",
-      "libraryId": "System.Security.Cryptography.Pkcs",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx",
-      "projectPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api.Tests\\RaceDay.Api.Tests.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api.Tests\\RaceDay.Api.Tests.csproj",
-      "libraryId": "System.Security.Cryptography.Pkcs",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

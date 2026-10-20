@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jKbYctiP4VU=",
+  "dgSpecHash": "l9YnjjIE9vQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dean\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.13\\system.security.cryptography.pkcs.10.0.13.nupkg.sha512"
+  ],
   "logs": []
 }

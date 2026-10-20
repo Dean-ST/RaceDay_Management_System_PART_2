@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj": {}
+    "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj": {
+    "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj",
         "projectName": "RaceDay.Api",
-        "projectPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj",
+        "projectPath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Api\\RaceDay.Api.csproj",
         "packagesPath": "C:\\Users\\Dean\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Api\\obj\\",
+        "outputPath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj": {
-                "projectPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj"
+              "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj": {
+                "projectPath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj"
               }
             }
           }
@@ -77,6 +77,10 @@
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
               "version": "[10.3.0, )"
+            },
+            "System.Security.Cryptography.Pkcs": {
+              "target": "Package",
+              "version": "[10.0.13, )"
             }
           },
           "imports": [
@@ -516,14 +520,14 @@
         }
       }
     },
-    "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj": {
+    "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj",
         "projectName": "RaceDay.Contracts",
-        "projectPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj",
+        "projectPath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\RaceDay.Contracts.csproj",
         "packagesPath": "C:\\Users\\Dean\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dean\\OneDrive\\Desktop\\RaceDay\\RaceDay.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\Dean\\source\\repos\\RaceDay_Management_System_PART_2\\RaceDay\\RaceDay.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -563,6 +567,12 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
+          "dependencies": {
+            "System.Security.Cryptography.Pkcs": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

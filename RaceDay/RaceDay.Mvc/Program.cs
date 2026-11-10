@@ -1,4 +1,7 @@
+using RaceDay.Mvc.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddHttpClient("RaceDayApi", client =>
 {
@@ -18,6 +21,17 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddTransient<ApiSessionHandler>();
+
+builder.Services.AddHttpClient("RaceDayApi", client =>
+{
+    var baseUrl = builder.Configuration["ApiSettings:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl!);
+})
+.AddHttpMessageHandler<ApiSessionHandler>();
 
 var app = builder.Build();
 

@@ -1,0 +1,32 @@
+﻿@model List<RaceDay.Contracts.ResultDto>
+
+<h2>My Race Results</h2>
+
+@if (!Model.Any())
+{
+    <p>No results are available yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Category</th>
+                <th>Finish Time</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model)
+            {
+                <tr>
+                    <td>@result.EventName</td>
+                    <td>@result.CategoryAge</td>
+                    <td>@result.FinishTime</td>
+                    <td>@result.FinishPosition</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,41 @@
+﻿@model List<RaceDay.Contracts.EventDto>
+
+<h2>Available Events</h2>
+
+@if (!Model.Any())
+{
+    <p>No events are currently available.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Distance</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Date</td>
+                    <td>@item.Location</td>
+                    <td>@item.Distance km</td>
+                    <td>
+                        <a asp-controller="Enrolments"
+                           asp-action="SelectCategory"
+                           asp-route-eventId="@item.EventId">
+                            Enrol
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

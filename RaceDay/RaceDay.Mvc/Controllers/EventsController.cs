@@ -26,6 +26,19 @@ public class EventsController : Controller
         return View(events ?? new List<EventDto>());
     }
 
+    public async Task<IActionResult> Browse()
+    {
+        if (HttpContext.Session.GetString("Role") != "Participant")
+            return RedirectToAction("Login", "Account");
+
+        var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+        var events = await client.GetFromJsonAsync<List<EventDto>>(
+            "api/events");
+
+        return View(events ?? new List<EventDto>());
+    }
+
     [HttpGet]
     public IActionResult Create()
     {

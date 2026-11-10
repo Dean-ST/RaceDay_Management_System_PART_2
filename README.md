@@ -171,3 +171,137 @@ Validation still to be completed
 - Confirm the corrected ERD, API plan and SQL script are committed at the exact paths checked by GitHub Actions.
 - Push the workflow and confirm the Actions run completes successfully.
 - Keep meaningful commits for the remaining Part 2 implementation work.
+
+
+PART 3
+
+# RaceDay Management System
+
+## 1. Project Overview
+
+The RaceDay Management System is a web-based application developed using ASP.NET Core MVC and ASP.NET Core Web API. It allows organisers to manage racing events and participants to browse events and enrol in available categories.
+
+The application uses a REST API to communicate with the database.
+
+## 2. Technologies Used
+
+- C#
+- ASP.NET Core MVC
+- ASP.NET Core Web API
+- .NET 10
+- Entity Framework Core
+- Microsoft SQL Server
+- HTML and CSS
+- JavaScript
+- Git and GitHub
+
+## 3. User Roles
+
+### Organiser
+- Register and log in.
+- Manage racing events.
+- Create and manage event categories.
+- View participant enrolments.
+- Update enrolment statuses.
+
+### Participant
+- Register and log in.
+- Browse available racing events.
+- View available event categories.
+- Enrol in an event.
+- View personal enrolments.
+
+## 4. Solution Structure
+
+The solution contains the following projects:
+
+- **RaceDay.Api:** Handles API requests, authentication and database operations.
+- **RaceDay.Contracts:** Contains shared DTOs and request models.
+- **RaceDay.Api.Tests:** Contains automated API tests.
+- **RaceDay.Mvc:** Provides the web interface and communicates with the API.
+
+## 5. Requirements
+
+To run the application, you need:
+
+- Visual Studio 2026.
+- .NET 10 SDK.
+- Microsoft SQL Server LocalDB.
+- Git.
+
+## 6. Running the Application
+
+### Step 1: Clone the repository
+
+Clone the repository from GitHub and open the solution in Visual Studio.
+
+### Step 2: Configure the database
+
+Ensure that the SQL Server connection string in the API configuration points to your SQL Server instance.
+
+### Step 3: Run the API
+
+Set `RaceDay.Api` as the startup project and run the application.
+
+Swagger can be accessed at:
+
+`http://localhost:5000/swagger`
+
+### Step 4: Configure the MVC application
+
+The MVC application's `appsettings.json` contains the API base address:
+
+```json
+"ApiSettings": {
+  "BaseUrl": "http://localhost:5000/"
+}
+```
+
+Update this address if the API runs on a different port.
+
+### Step 5: Run the MVC application
+
+Set `RaceDay.Mvc` as the startup project and run the application.
+
+## 7. Authentication
+
+The application uses session-based authentication.
+
+The MVC application communicates with the API using `HttpClient`. API session cookies are forwarded through a custom HTTP message handler to maintain the authenticated API session.
+
+User roles determine which application features are accessible.
+
+## 8. Main Features
+
+- User registration and login.
+- Role-based access.
+- Event management.
+- Event category management.
+- Participant enrolments.
+- Enrolment status management.
+- MVC interface integrated with the REST API.
+
+## 9. Azure Blob Storage
+
+Azure Blob Storage integration is intended for storing and retrieving event-related images.
+
+Configuration and implementation details will be documented here once completed.
+
+## 10. Docker
+
+Docker containerisation is intended to allow the MVC application to run inside a container.
+
+Docker build and run instructions will be added once containerisation is completed.
+
+## 11. Continuous Integration
+
+The project uses GitHub Actions for automated build and testing workflows.
+
+## 12. Repository
+
+The source code is maintained in GitHub.
+
+Repository:https://github.com/Dean-ST/RaceDay_Management_System_PART_2/edit/PART_3
+
+**Development Branch:** `part-3`
+

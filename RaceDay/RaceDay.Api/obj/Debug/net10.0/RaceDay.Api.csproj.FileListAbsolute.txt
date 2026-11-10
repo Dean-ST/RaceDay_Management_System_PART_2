@@ -172,3 +172,4 @@ C:\Users\Dean\source\repos\RaceDay_Management_System_PART_2\RaceDay\RaceDay.Api\
 C:\Users\Dean\source\repos\RaceDay_Management_System_PART_2\RaceDay\RaceDay.Api\obj\Debug\net10.0\RaceDay.Api.pdb
 C:\Users\Dean\source\repos\RaceDay_Management_System_PART_2\RaceDay\RaceDay.Api\obj\Debug\net10.0\RaceDay.Api.genruntimeconfig.cache
 C:\Users\Dean\source\repos\RaceDay_Management_System_PART_2\RaceDay\RaceDay.Api\obj\Debug\net10.0\ref\RaceDay.Api.dll
+C:\Users\Dean\source\repos\RaceDay_Management_System_PART_2\RaceDay\RaceDay.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

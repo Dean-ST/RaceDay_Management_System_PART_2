@@ -1,0 +1,23 @@
+﻿@model RaceDay.Contracts.CreateEventRequest
+
+<h2>Create Event</h2>
+
+<p style="color:red">@ViewBag.Error</p>
+
+<form asp-action="Create" method="post">
+
+    <input asp-for="Name" placeholder="Event Name" required />
+
+    <textarea asp-for="Description" placeholder="Description"></textarea>
+
+    <input asp-for="Date" type="datetime-local" required />
+
+    <input asp-for="Location" placeholder="Location" required />
+
+    <input asp-for="Distance" type="number" step="0.01" required />
+
+    <input asp-for="EventType" placeholder="Event Type" required />
+
+    <button type="submit">Create Event</button>
+
+</form>

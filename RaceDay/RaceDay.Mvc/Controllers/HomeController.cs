@@ -8,6 +8,16 @@ namespace RaceDay.Mvc.Controllers
     {
         public IActionResult Index()
         {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var role = HttpContext.Session.GetString("Role");
+
+            if (userId == null || role == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            ViewBag.Role = role;
+
             return View();
         }
 

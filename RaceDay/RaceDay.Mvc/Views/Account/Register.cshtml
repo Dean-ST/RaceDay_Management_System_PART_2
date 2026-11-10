@@ -1,0 +1,32 @@
+﻿@model RaceDay.Contracts.RegisterRequest
+
+<h2>Create Account</h2>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+<form asp-action="Register" method="post">
+
+    <input asp-for="FirstName" placeholder="First Name" required />
+
+    <input asp-for="LastName" placeholder="Last Name" required />
+
+    <input asp-for="Email" type="email" placeholder="Email" required />
+
+    <input asp-for="Password" type="password" placeholder="Password" required />
+
+    <select asp-for="Role" required>
+        <option value="">Select Role</option>
+        <option value="Participant">Participant</option>
+        <option value="Organiser">Organiser</option>
+    </select>
+
+    <input asp-for="Age" type="number" placeholder="Age" />
+
+    <input asp-for="PhoneNumber" placeholder="Phone Number" required />
+
+    <button type="submit">Register</button>
+
+</form>

@@ -46,4 +46,27 @@ public class AccountController : Controller
 
         return RedirectToAction("Index", "Home");
     }
+
+    [HttpGet]
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterRequest request)
+    {
+        var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+        var response = await client.PostAsJsonAsync(
+            "api/auth/register", request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            ViewBag.Error = "Registration failed. Check your details.";
+            return View();
+        }
+
+        return RedirectToAction("Login");
+    }
 }

@@ -23,6 +23,11 @@ public class ResultController : ControllerBase
     public async Task<IActionResult> CreateResult(
         CreateResultRequest request)
     {
+        if (request == null)
+        {
+            return BadRequest("Result information is required.");
+        }
+
         int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
 
         if (userId == null)
@@ -36,7 +41,10 @@ public class ResultController : ControllerBase
 
         if (user.UserType != "Organiser" ||
             user.OrganiserId == null)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var enrollment = await _context.Enrollments
             .Include(e => e.Event)
@@ -46,7 +54,10 @@ public class ResultController : ControllerBase
             return NotFound("Enrollment not found.");
 
         if (enrollment.Event!.OrganiserId != user.OrganiserId)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         if (enrollment.Status != "Confirmed")
             return BadRequest(
@@ -105,7 +116,10 @@ public class ResultController : ControllerBase
 
         if (user.UserType != "Participant" ||
             user.ParticipantId == null)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var results = await _context.Results
             .Where(r => r.Enrollment!.ParticipantId == user.ParticipantId)
@@ -141,7 +155,10 @@ public class ResultController : ControllerBase
 
         if (user.UserType != "Organiser" ||
             user.OrganiserId == null)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var raceEvent = await _context.Events
             .FirstOrDefaultAsync(e => e.EventId == eventId);
@@ -150,7 +167,10 @@ public class ResultController : ControllerBase
             return NotFound("Event not found.");
 
         if (raceEvent.OrganiserId != user.OrganiserId)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var results = await _context.Results
             .Where(r => r.Enrollment!.EventId == eventId)

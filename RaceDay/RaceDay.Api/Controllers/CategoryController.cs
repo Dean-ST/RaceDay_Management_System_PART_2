@@ -130,7 +130,10 @@ public class CategoryController : ControllerBase
 
         if (user.UserType != "Organiser" || user.OrganiserId == null)
         {
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
         }
 
         var category = await _context.Categories
@@ -145,7 +148,10 @@ public class CategoryController : ControllerBase
         if (category.Event == null ||
             category.Event.OrganiserId != user.OrganiserId)
         {
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
         }
 
         if (request.Age < 1)
@@ -181,7 +187,10 @@ public class CategoryController : ControllerBase
 
         if (user.UserType != "Organiser" || user.OrganiserId == null)
         {
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
         }
 
         var category = await _context.Categories
@@ -197,7 +206,10 @@ public class CategoryController : ControllerBase
         if (category.Event == null ||
             category.Event.OrganiserId != user.OrganiserId)
         {
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
         }
 
         if (category.Enrollments.Any())

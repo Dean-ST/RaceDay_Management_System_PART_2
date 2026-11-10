@@ -36,7 +36,10 @@ public class EnrollmentController : ControllerBase
 
         if (user.UserType != "Participant" ||
             user.ParticipantId == null)
-            return Forbid();
+            return StatusCode(
+     StatusCodes.Status403Forbidden,
+     "You do not have permission to perform this action."
+ );
 
         var raceEvent = await _context.Events
             .FirstOrDefaultAsync(e => e.EventId == request.EventId);
@@ -109,7 +112,10 @@ public class EnrollmentController : ControllerBase
 
         if (user.UserType != "Participant" ||
             user.ParticipantId == null)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var enrollments = await _context.Enrollments
             .Where(e => e.ParticipantId == user.ParticipantId)
@@ -145,7 +151,10 @@ public class EnrollmentController : ControllerBase
 
         if (user.UserType != "Organiser" ||
             user.OrganiserId == null)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var raceEvent = await _context.Events
             .FirstOrDefaultAsync(e => e.EventId == eventId);
@@ -154,7 +163,10 @@ public class EnrollmentController : ControllerBase
             return NotFound("Event not found.");
 
         if (raceEvent.OrganiserId != user.OrganiserId)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var enrollments = await _context.Enrollments
             .Where(e => e.EventId == eventId)
@@ -192,7 +204,10 @@ public class EnrollmentController : ControllerBase
 
         if (user.UserType != "Organiser" ||
             user.OrganiserId == null)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
 
         var enrollment = await _context.Enrollments
             .Include(e => e.Event)
@@ -202,7 +217,14 @@ public class EnrollmentController : ControllerBase
             return NotFound("Enrollment not found.");
 
         if (enrollment.Event!.OrganiserId != user.OrganiserId)
-            return Forbid();
+            return StatusCode(
+    StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action."
+);
+        if (string.IsNullOrWhiteSpace(request.Status))
+        {
+            return BadRequest("Enrollment status is required.");
+        }
 
         string status = request.Status.Trim();
 

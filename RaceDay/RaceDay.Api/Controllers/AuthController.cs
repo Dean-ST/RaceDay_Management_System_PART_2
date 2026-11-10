@@ -44,8 +44,15 @@ public class AuthController : ControllerBase
 
         string email = request.Email.Trim().ToLowerInvariant();
 
+        //bool emailExists = await _context.Users
+        //    .AnyAsync(u => u.Email == email);
+
+        Console.WriteLine("REGISTER: Checking email...");
+
         bool emailExists = await _context.Users
             .AnyAsync(u => u.Email == email);
+
+        Console.WriteLine("REGISTER: Email check completed.");
 
         if (emailExists)
         {
@@ -99,9 +106,18 @@ public class AuthController : ControllerBase
             user.Participant = participant;
         }
 
+        //_context.Users.Add(user);
+
+        //await _context.SaveChangesAsync();
+
+
+        Console.WriteLine("REGISTER: Saving user...");
+
         _context.Users.Add(user);
 
         await _context.SaveChangesAsync();
+
+        Console.WriteLine("REGISTER: User saved successfully.");
 
         return Created(
             "/api/profile/me",

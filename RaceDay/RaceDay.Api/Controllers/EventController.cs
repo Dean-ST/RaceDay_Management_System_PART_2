@@ -85,7 +85,8 @@ public class EventController : ControllerBase
 
         if (user.UserType != "Organiser" || user.OrganiserId == null)
         {
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action.");
         }
 
         var events = await _context.Events
@@ -127,7 +128,8 @@ public class EventController : ControllerBase
 
         if (user.UserType != "Organiser" || user.OrganiserId == null)
         {
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action.");
         }
 
         if (string.IsNullOrWhiteSpace(request.Name) ||
@@ -193,7 +195,8 @@ public class EventController : ControllerBase
 
         if (user.UserType != "Organiser" || user.OrganiserId == null)
         {
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action.");
         }
 
         var raceEvent = await _context.Events
@@ -206,7 +209,8 @@ public class EventController : ControllerBase
 
         if (raceEvent.OrganiserId != user.OrganiserId)
         {
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action.");
         }
 
         if (string.IsNullOrWhiteSpace(request.Name) ||
@@ -251,7 +255,8 @@ public class EventController : ControllerBase
 
         if (user.UserType != "Organiser" || user.OrganiserId == null)
         {
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action.");
         }
 
         var raceEvent = await _context.Events
@@ -266,7 +271,8 @@ public class EventController : ControllerBase
 
         if (raceEvent.OrganiserId != user.OrganiserId)
         {
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+    "You do not have permission to perform this action.");
         }
 
         if (raceEvent.Categories.Any() || raceEvent.Enrollments.Any())

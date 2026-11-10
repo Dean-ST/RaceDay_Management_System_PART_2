@@ -69,4 +69,16 @@ public class AccountController : Controller
 
         return RedirectToAction("Login");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+        await client.PostAsync("api/auth/logout", null);
+
+        HttpContext.Session.Clear();
+
+        return RedirectToAction("Login");
+    }
 }

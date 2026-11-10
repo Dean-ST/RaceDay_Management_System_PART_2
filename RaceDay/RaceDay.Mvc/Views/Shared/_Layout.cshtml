@@ -19,14 +19,73 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                   @using Microsoft.AspNetCore.Http
+
+<ul class="navbar-nav flex-grow-1">
+
+    <li class="nav-item">
+        <a class="nav-link text-dark"
+           asp-controller="Home" asp-action="Index">Dashboard</a>
+    </li>
+
+    @{
+        var role = Context.Session.GetString("Role");
+    }
+
+    @if (role == "Organiser")
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Events" asp-action="Index">Manage Events</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Events" asp-action="Create">Create Event</a>
+        </li>
+    }
+
+    @if (role == "Participant")
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Events" asp-action="Browse">Browse Events</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Enrolments" asp-action="Mine">My Enrolments</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Results" asp-action="Mine">My Results</a>
+        </li>
+    }
+
+    @if (role != null)
+    {
+        <li class="nav-item">
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <button type="submit" class="nav-link text-dark border-0 bg-transparent">
+                    Logout
+                </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+    }
+</ul>
                 </div>
             </div>
         </nav>

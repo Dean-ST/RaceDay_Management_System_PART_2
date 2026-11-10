@@ -1,0 +1,28 @@
+﻿@model List<RaceDay.Contracts.EnrolmentDto>
+
+<h2>My Enrolments</h2>
+
+@if (TempData["Error"] != null)
+{
+    <p style="color:red">@TempData["Error"]</p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Category Age</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EventName</td>
+                <td>@item.CategoryAge</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model List<RaceDay.Contracts.EnrolmentDto>
+
+<h2>Event Enrolments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Participant</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ParticipantName</td>
+                <td>@item.CategoryAge</td>
+                <td>@item.Status</td>
+                <td>
+                    <form asp-action="UpdateStatus" method="post">
+                        <input type="hidden" name="id" value="@item.EnrollmentId" />
+                        <input type="hidden" name="eventId" value="@ViewBag.EventId" />
+
+                        <select name="status">
+                            <option value="Pending">Pending</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

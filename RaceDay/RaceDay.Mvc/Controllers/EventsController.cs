@@ -64,4 +64,21 @@ public class EventsController : Controller
 
         return RedirectToAction("Index");
     }
+
+
+    [HttpGet]
+    public async Task<IActionResult> SelectCategory(int eventId)
+    {
+        if (HttpContext.Session.GetString("Role") != "Participant")
+            return RedirectToAction("Login", "Account");
+
+        var client = _httpClientFactory.CreateClient("RaceDayApi");
+
+        var categories = await client.GetFromJsonAsync<List<CategoryDto>>(
+            $"api/events/{eventId}/categories");
+
+        ViewBag.EventId = eventId;
+
+        return View(categories ?? new List<CategoryDto>());
+    }
 }

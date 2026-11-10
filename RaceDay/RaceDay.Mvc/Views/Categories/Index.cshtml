@@ -1,0 +1,57 @@
+﻿@model List<RaceDay.Contracts.CategoryDto>
+
+<h2>Manage Categories</h2>
+
+<h4>Create Category</h4>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="eventId" value="@ViewBag.EventId" />
+
+    <label>Age Category</label>
+    <input type="number" name="Age" min="1" required />
+
+    <button type="submit">Create</button>
+</form>
+
+<hr />
+
+<h4>Existing Categories</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>
+                    <form asp-action="Update" method="post">
+                        <input type="hidden" name="id" value="@category.CategoryId" />
+                        <input type="hidden" name="eventId" value="@ViewBag.EventId" />
+
+                        <input type="number" name="Age" value="@category.Age" min="1" required />
+
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@category.CategoryId" />
+                        <input type="hidden" name="eventId" value="@ViewBag.EventId" />
+
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Events" asp-action="Index">Back to Events</a>
